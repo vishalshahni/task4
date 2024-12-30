@@ -1,14 +1,11 @@
 const express = require('express');
 const path = require('path')
+const contactController = require('../controller/contactus')
 
 const route = express();
 
-route.get('/contact',(req,res)=>{
-    res.sendFile(path.join(__dirname,'..','views','contact.html'));
-})
+route.get('/contact',contactController.contact)
 
-route.post('/contact',(req,res)=>{
-    res.redirect('success');
-})
+route.post('/contact',contactController.contactPost);
 
 module.exports = route;
